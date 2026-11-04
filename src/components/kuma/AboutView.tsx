@@ -94,7 +94,6 @@ export default function AboutView({ onNavigate }: Props) {
           href={`mailto:${SITE.contactEmail}`}
           className="mt-4 inline-flex items-center gap-2 rounded-full border border-white/25 px-4 py-2 text-sm hover:bg-white/10 transition-colors"
         >
-          <Mail className="h-4 w-4" aria-hidden /> {SITE.contactEmail}
         </a>
         <div className="mt-6">
           <Button variant="outline" className="rounded-full border-white/30 text-white hover:bg-white/10" onClick={() => onNavigate("contribuer")}>
