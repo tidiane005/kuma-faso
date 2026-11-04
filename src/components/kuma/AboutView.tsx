@@ -90,11 +90,7 @@ export default function AboutView({ onNavigate }: Props) {
           des Contes et Légendes du Burkina Faso ». Pour toute contribution, partenariat ou
           suggestion :
         </p>
-        <a
-          href={`mailto:${SITE.contactEmail}`}
-          className="mt-4 inline-flex items-center gap-2 rounded-full border border-white/25 px-4 py-2 text-sm hover:bg-white/10 transition-colors"
-        >
-        </a>
+      
         <div className="mt-6">
           <Button variant="outline" className="rounded-full border-white/30 text-white hover:bg-white/10" onClick={() => onNavigate("contribuer")}>
             Contribuer maintenant
