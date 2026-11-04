@@ -166,7 +166,7 @@ export default function NarrativeView() {
         <aside className="rounded-2xl border bg-card paper-card p-5 lg:sticky lg:top-20">
           <h3 className="font-display text-lg font-semibold">Carnet de route</h3>
           <p className="mt-1.5 text-sm text-muted-foreground leading-relaxed">
-            Vos choix sculptent le récit : générosité, ruse, patience ou hâte — la brousse retient
+            Vos choix sculptent le récit : générosité, ruse, patience ou hâte  la brousse retient
             tout et le masque juge l'ensemble de votre marche.
           </p>
           <ol className="mt-4 space-y-2 text-sm">
