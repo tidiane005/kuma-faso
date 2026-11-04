@@ -184,10 +184,7 @@ export default function KumaApp({
           <p className="text-xs text-muted-foreground text-center sm:text-right">
             {stories.length} récits · 17 régions · mooré, dioula, fulfulde & français
             <br />
-            {SITE.project} —{" "}
-            <a href={`mailto:${SITE.contactEmail}`} className="underline hover:text-[var(--terre)]">
-              {SITE.contactEmail}
-            </a>
+           
           </p>
         </div>
       </footer>
