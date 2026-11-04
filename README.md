@@ -1,5 +1,7 @@
 # Kuma Faso — la parole du Burkina
 
+**Site en ligne : https://kuma-faso.vercel.app**
+
 Plateforme web immersive de préservation et de transmission du patrimoine oral
 burkinabè : carte interactive des 17 régions (découpage de 2025), contes, légendes et récits
 historiques illustrés et sonorisés, récit interactif, lexique des langues
