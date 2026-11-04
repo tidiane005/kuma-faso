@@ -51,7 +51,7 @@ export default function ContesView({ stories, onOpenStory }: Props) {
         <h1 className="font-display text-3xl sm:text-4xl font-bold">La bibliothèque des récits</h1>
         <p className="mt-2 text-muted-foreground max-w-2xl leading-relaxed">
           {stories.length} récits : contes, légendes, mythes et pages d'histoire, dont quinze contes à lire et à
-          écouter en dioula, en mooré et en fulfulde — rangés région par région.
+          écouter en dioula, en mooré et en fulfulde  rangés région par région.
         </p>
       </header>
 
