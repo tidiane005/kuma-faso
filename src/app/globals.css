@@ -1,0 +1,486 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-outfit);
+  --font-display: var(--font-fraunces);
+  --font-mono: var(--font-fraunces);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-terre: var(--terre);
+  --color-or: var(--or);
+  --color-karite: var(--karite);
+  --color-nuit: var(--nuit);
+  --color-sable: var(--sable);
+  --color-henné: var(--henné);
+}
+
+:root {
+  --radius: 0.75rem;
+  /* Palette « terre du Faso » — inspirée de Tiébélé et du granit de Laongo */
+  --background: oklch(0.955 0.022 84);
+  --foreground: oklch(0.26 0.045 50);
+  --card: oklch(0.985 0.014 85);
+  --card-foreground: oklch(0.26 0.045 50);
+  --popover: oklch(0.985 0.014 85);
+  --popover-foreground: oklch(0.26 0.045 50);
+  --primary: oklch(0.545 0.165 42);
+  --primary-foreground: oklch(0.98 0.02 85);
+  --secondary: oklch(0.9 0.04 80);
+  --secondary-foreground: oklch(0.32 0.05 50);
+  --muted: oklch(0.915 0.03 82);
+  --muted-foreground: oklch(0.46 0.04 55);
+  --accent: oklch(0.82 0.125 78);
+  --accent-foreground: oklch(0.28 0.06 50);
+  --destructive: oklch(0.577 0.215 27);
+  --border: oklch(0.86 0.04 76);
+  --input: oklch(0.86 0.04 76);
+  --ring: oklch(0.545 0.165 42);
+  --terre: oklch(0.545 0.165 42);
+  --or: oklch(0.79 0.135 78);
+  --karite: oklch(0.47 0.085 150);
+  --nuit: oklch(0.235 0.035 45);
+  --sable: oklch(0.955 0.022 84);
+  --henné: oklch(0.63 0.11 55);
+}
+
+.dark {
+  /* Nuit de veillée — le conte sous les étoiles */
+  --background: oklch(0.2 0.028 45);
+  --foreground: oklch(0.925 0.03 82);
+  --card: oklch(0.245 0.032 45);
+  --card-foreground: oklch(0.925 0.03 82);
+  --popover: oklch(0.245 0.032 45);
+  --popover-foreground: oklch(0.925 0.03 82);
+  --primary: oklch(0.82 0.125 78);
+  --primary-foreground: oklch(0.22 0.04 45);
+  --secondary: oklch(0.3 0.035 48);
+  --secondary-foreground: oklch(0.9 0.03 82);
+  --muted: oklch(0.29 0.03 48);
+  --muted-foreground: oklch(0.72 0.035 70);
+  --accent: oklch(0.63 0.11 55);
+  --accent-foreground: oklch(0.95 0.02 85);
+  --destructive: oklch(0.65 0.19 25);
+  --border: oklch(0.35 0.035 50);
+  --input: oklch(0.35 0.035 50);
+  --ring: oklch(0.79 0.135 78);
+  --terre: oklch(0.82 0.125 78);
+  --or: oklch(0.82 0.135 78);
+  --karite: oklch(0.65 0.1 150);
+  --nuit: oklch(0.17 0.025 45);
+  --sable: oklch(0.2 0.028 45);
+  --henné: oklch(0.7 0.1 60);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    background-image: radial-gradient(
+        circle at 15% 20%,
+        color-mix(in oklab, var(--or) 14%, transparent) 0,
+        transparent 42%
+      ),
+      radial-gradient(
+        circle at 85% 8%,
+        color-mix(in oklab, var(--terre) 10%, transparent) 0,
+        transparent 40%
+      );
+    background-attachment: fixed;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-fraunces), Georgia, serif;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-fraunces), Georgia, serif;
+  }
+  /* Bande décorative inspirée des fresques kassena de Tiébélé */
+  .tiebele-band {
+    height: 14px;
+    background-image: repeating-linear-gradient(
+        90deg,
+        var(--terre) 0 18px,
+        var(--or) 18px 26px,
+        var(--karite) 26px 30px,
+        var(--or) 30px 38px
+      ),
+      repeating-linear-gradient(0deg, transparent 0 5px, rgba(0, 0, 0, 0.08) 5px 7px);
+    border-radius: 999px;
+  }
+  .paper-card {
+    background: color-mix(in oklab, var(--card) 94%, var(--or));
+    box-shadow:
+      0 1px 0 rgba(0, 0, 0, 0.04),
+      0 10px 30px -18px color-mix(in oklab, var(--nuit) 45%, transparent);
+  }
+  .k-scroll::-webkit-scrollbar {
+    width: 8px;
+  }
+  .k-scroll::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .k-scroll::-webkit-scrollbar-thumb {
+    background: color-mix(in oklab, var(--henné) 60%, transparent);
+    border-radius: 999px;
+  }
+}
+
+/* ---------- Animations des illustrations (scènes SVG) ---------- */
+@keyframes k-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+@keyframes k-sway {
+  0%,
+  100% {
+    transform: rotate(-2.4deg);
+  }
+  50% {
+    transform: rotate(2.4deg);
+  }
+}
+@keyframes k-bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-2.5px);
+  }
+}
+@keyframes k-ripple {
+  0% {
+    transform: scale(0.35);
+    opacity: 0.75;
+  }
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+@keyframes k-drift {
+  0% {
+    transform: translateX(-28px);
+    opacity: 0;
+  }
+  15%,
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(320px);
+    opacity: 0;
+  }
+}
+@keyframes k-blink {
+  0%,
+  92%,
+  100% {
+    opacity: 1;
+  }
+  95% {
+    opacity: 0.15;
+  }
+}
+@keyframes k-beat {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  12% {
+    transform: scale(1.045);
+  }
+  24% {
+    transform: scale(1);
+  }
+  36% {
+    transform: scale(1.03);
+  }
+}
+@keyframes k-rise {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(-46px) scale(0.7);
+    opacity: 0;
+  }
+}
+@keyframes k-draw {
+  from {
+    stroke-dashoffset: 320;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes k-glow {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+@keyframes k-fadein-step {
+  0%,
+  20% {
+    opacity: 0.12;
+  }
+  40%,
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes k-swing {
+  0%,
+  100% {
+    transform: rotate(-24deg);
+  }
+  50% {
+    transform: rotate(24deg);
+  }
+}
+@keyframes k-dash-move {
+  to {
+    stroke-dashoffset: -60;
+  }
+}
+
+@layer utilities {
+  .k-float {
+    animation: k-float 5.5s ease-in-out infinite;
+  }
+  .k-sway {
+    animation: k-sway 6s ease-in-out infinite;
+    transform-origin: 50% 92%;
+  }
+  .k-bob {
+    animation: k-bob 0.9s ease-in-out infinite;
+  }
+  .k-ripple {
+    animation: k-ripple 3.4s ease-out infinite;
+    transform-origin: center;
+    transform-box: fill-box;
+  }
+  .k-drift {
+    animation: k-drift 14s linear infinite;
+  }
+  .k-blink {
+    animation: k-blink 7s ease-in-out infinite;
+  }
+  .k-beat {
+    animation: k-beat 1.6s ease-in-out infinite;
+    transform-origin: center;
+    transform-box: fill-box;
+  }
+  .k-rise {
+    animation: k-rise 4.2s ease-in infinite;
+  }
+  .k-glow {
+    animation: k-glow 4s ease-in-out infinite;
+  }
+  .k-swing {
+    animation: k-swing 1.4s ease-in-out infinite alternate;
+    transform-origin: 50% 0%;
+    transform-box: fill-box;
+  }
+  .k-dash-move {
+    stroke-dasharray: 8 14;
+    animation: k-dash-move 3s linear infinite;
+  }
+  .k-step-1 {
+    animation: k-fadein-step 6s ease infinite;
+  }
+  .k-step-2 {
+    animation: k-fadein-step 6s ease 1.2s infinite;
+  }
+  .k-step-3 {
+    animation: k-fadein-step 6s ease 2.4s infinite;
+  }
+  .k-step-4 {
+    animation: k-fadein-step 6s ease 3.6s infinite;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .k-float,
+  .k-sway,
+  .k-bob,
+  .k-ripple,
+  .k-drift,
+  .k-blink,
+  .k-beat,
+  .k-rise,
+  .k-glow,
+  .k-swing,
+  .k-dash-move,
+  .k-step-1,
+  .k-step-2,
+  .k-step-3,
+  .k-step-4 {
+    animation: none !important;
+  }
+}
+
+
+/* ==========================================================================
+   Scènes animées des récits (théâtre d'ombres) : src/components/kuma/scene/
+   ========================================================================== */
+.ks-scene { display: block; }
+.ks-sky { transition: opacity 1.4s ease, fill 1.4s ease; }
+.ks-fade { animation: ks-fade 1.2s ease-out both; }
+.ks-enter { animation: ks-enter 1s cubic-bezier(.2,.7,.2,1) both; }
+.ks-bob { animation: ks-bob 2.6s ease-in-out infinite; }
+.ks-step { animation: ks-step 0.6s ease-in-out infinite; }
+.ks-step-fast { animation: ks-step 0.32s ease-in-out infinite; }
+.ks-walk { animation: ks-walk 18s linear infinite; }
+.ks-run { animation: ks-walk 8s linear infinite; }
+.ks-fly { animation: ks-fly 24s linear infinite; }
+.ks-flap { transform-box: fill-box; transform-origin: center; animation: ks-flap 0.5s ease-in-out infinite; }
+.ks-float { animation: ks-float 3.2s ease-in-out infinite; }
+.ks-eye { animation: ks-twinkle 2s ease-in-out infinite; fill: #ffd36b; }
+.ks-flicker { transform-box: fill-box; transform-origin: 50% 100%; animation: ks-flicker 0.32s ease-in-out infinite alternate; }
+.ks-twinkle { animation: ks-twinkle 2.8s ease-in-out infinite; }
+.ks-sway { transform-box: fill-box; transform-origin: 50% 100%; animation: ks-sway 4s ease-in-out infinite; }
+.ks-ripple { animation: ks-ripple 5s linear infinite; }
+.ks-rain { animation: ks-rain 0.6s linear infinite; }
+.ks-gesture { transform-box: fill-box; transform-origin: 0% 100%; animation: ks-gesture 1.8s ease-in-out infinite; }
+
+@keyframes ks-fade { from { opacity: 0; } }
+@keyframes ks-enter { from { opacity: 0; transform: translateY(14px); } }
+@keyframes ks-bob { 50% { transform: translateY(-3px); } }
+@keyframes ks-step { 50% { transform: translateY(-4px); } }
+@keyframes ks-walk {
+  0% { transform: translateX(-380px); opacity: 0; }
+  8%, 92% { opacity: 1; }
+  100% { transform: translateX(380px); opacity: 0; }
+}
+@keyframes ks-fly { from { transform: translateX(-150px); } to { transform: translateX(1400px); } }
+@keyframes ks-flap { 50% { transform: scaleY(0.35); } }
+@keyframes ks-float { 50% { transform: translateY(-9px); } }
+@keyframes ks-flicker { to { transform: scaleY(0.8) scaleX(1.08); } }
+@keyframes ks-twinkle { 50% { opacity: 0.25; } }
+@keyframes ks-sway { 50% { transform: rotate(3deg); } }
+@keyframes ks-ripple { to { transform: translateX(-62px); } }
+@keyframes ks-rain { from { transform: translateY(-30px); } to { transform: translateY(30px); } }
+@keyframes ks-gesture { 50% { transform: rotate(-16deg); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .ks-scene *, .ks-scene { animation: none !important; transition: none !important; }
+}
+
+
+/* ==========================================================================
+   Carte des 17 régions : relief 3D et feux de veillée (MapView.tsx)
+   ========================================================================== */
+.kmap-relief {
+  filter: drop-shadow(0 2px 0 #7a5a33) drop-shadow(0 2px 0 #6a4c2a) drop-shadow(0 3px 0 #5a3f22)
+    drop-shadow(0 18px 18px rgba(0, 0, 0, 0.35));
+}
+.kmap-pin {
+  display: block;
+  padding: 0;
+  border: 0;
+  background: none;
+  transition: transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1), opacity 0.2s;
+  cursor: pointer;
+}
+.kmap-pin:disabled { cursor: default; }
+.kmap-fire {
+  display: grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 999px;
+  border: 2px solid #fff7e8;
+  background: radial-gradient(circle at 50% 62%, #ffd36b 0 30%, #f08a2c 62%, #c2451e);
+  color: #3b1a05;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1;
+  box-shadow: 0 0 0 4px rgba(240, 138, 44, 0.35);
+  animation: kmap-pulse 2.4s ease-in-out infinite;
+}
+.kmap-fire-sm { width: 12px; height: 12px; border-width: 1.5px; animation: none; box-shadow: 0 0 0 3px rgba(240, 138, 44, 0.3); }
+.kmap-tag {
+  position: absolute;
+  white-space: nowrap;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--foreground);
+  padding: 1px 6px;
+  font-size: 11px;
+  line-height: 1.5;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  pointer-events: none;
+  transition: background-color 0.15s, color 0.15s;
+}
+.kmap-tag-top { bottom: calc(100% + 4px); left: 50%; transform: translateX(-50%); }
+.kmap-tag-below { top: calc(100% + 4px); left: 50%; transform: translateX(-50%); }
+.kmap-tag-right { left: calc(100% + 5px); top: 50%; transform: translateY(-50%); }
+.kmap-tag-left { right: calc(100% + 5px); top: 50%; transform: translateY(-50%); }
+.kmap-pin:hover .kmap-tag,
+.kmap-pin:focus-visible .kmap-tag,
+.kmap-pin-active .kmap-tag { background: var(--terre); border-color: var(--terre); color: #fff; }
+.kmap-pin:focus-visible { outline: none; }
+.kmap-pin:focus-visible .kmap-fire { outline: 2px solid var(--terre); outline-offset: 3px; }
+/* Sur téléphone, les noms de villes n'apparaissent qu'au toucher pour ne pas encombrer la carte */
+@media (max-width: 640px) {
+  .kmap-tag { display: none; }
+  .kmap-pin-active .kmap-tag, .kmap-pin:focus-visible .kmap-tag { display: block; z-index: 2; }
+}
+@keyframes kmap-pulse { 50% { box-shadow: 0 0 0 9px rgba(240, 138, 44, 0); } }
+@media (prefers-reduced-motion: reduce) {
+  .kmap-fire { animation: none; }
+  .kmap-pin, .kmap-stage { transition: none !important; }
+}
