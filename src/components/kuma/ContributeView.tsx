@@ -163,13 +163,11 @@ export default function ContributeView() {
           </h2>
           <p className="mt-1.5 text-xs text-muted-foreground leading-relaxed">
             Par défaut, chaque contribution est transmise par e-mail à l'équipe du projet.
-            Configurez un service externe (ex. Formspree) pour les recevoir et les afficher ici —
-            voir PERSONNALISATION.md.
           </p>
           <div className="mt-4 space-y-3 max-h-[420px] overflow-y-auto k-scroll pr-1">
             {recent.length === 0 ? (
               <p className="text-sm text-muted-foreground">
-                Le grenier attend sa première contribution — peut-être la vôtre.
+                Le grenier attend sa première contribution  peut-être la vôtre.
               </p>
             ) : (
               recent.map((c) => (
