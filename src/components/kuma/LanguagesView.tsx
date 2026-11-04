@@ -22,8 +22,8 @@ export default function LanguagesView({ onNavigate }: Props) {
         </h1>
         <p className="mt-3 text-[15px] leading-relaxed text-foreground/85">
           Un conte traduit est déjà un peu un voyage. Le Burkina Faso compte plus de soixante
-          langues ; les trois langues nationales les plus parlées — <strong>mooré</strong>,
-          <strong> dioula</strong> et <strong>fulfulde</strong> — accompagnent ici le français.
+          langues ; les trois langues nationales les plus parlées  <strong>mooré</strong>,
+          <strong> dioula</strong> et <strong>fulfulde</strong>  accompagnent ici le français.
           Cette plateforme prépare l'archive sonore de demain : les narrations françaises servent
           d'aperçu, et chaque enregistrement communautaire en langue nationale viendra prendre sa
           place dans le lecteur.
